@@ -161,6 +161,7 @@ namespace KinematicCharacterControllerNamespace
                 motor.InitialTickRotation = motor.TransientRotation;
 
                 motor.Transform.SetPositionAndRotation(motor.TransientPosition, motor.TransientRotation);
+                motor.TransientRotation.Normalize();  // sometimes comes back as an invalid quat
             }
 
             for (int i = 0; i < PhysicsMovers.Count; i++)
