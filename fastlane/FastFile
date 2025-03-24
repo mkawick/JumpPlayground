@@ -1,0 +1,51 @@
+platform :ios do  
+    desc "Build XCode IPA"
+    lane :build_ipa do |options|
+      setup_ci
+      api_key = app_store_connect_api_key(
+        key_id: options[:key_id],
+        issuer_id: options[:key_issuer],
+        key_content: options[:key_content]
+      )
+      
+      sync_code_signing(  
+         type: "adhoc",
+         readonly: false,
+         git_url: options[:repo_url],
+         app_identifier: options[:bundle_id],
+         api_key: api_key,
+      )
+
+      match(
+         type: "adhoc",
+         app_identifier: options[:bundle_id],
+         api_key: api_key,
+         git_url: options[:repo_url]
+      )
+      
+      cocoapods(
+        clean_install: true,
+        use_bundle_exec: false,
+        podfile: options[:build_path] + "/Podfile"
+      )
+  
+      gym(
+         workspace: options[:build_path] + "/Unity-iPhone.xcworkspace",
+         output_directory: options[:build_path] + "/Output/", 
+         output_name: "Output",
+         export_method: "ad-hoc",
+         include_bitcode: false, 
+         clean: true,
+         silent: true,
+         xcargs: "-allowProvisioningUpdates",
+         export_xcargs: "-allowProvisioningUpdates",
+         include_symbols: false,
+         export_options: {
+           provisioningProfiles: {
+             "com.TinyWizard.TinyWizardRoyale" => "match AdHoc com.TinyWizard.TopDownArena"
+           },
+           "signingStyle": "manual"
+         },
+      )
+    end
+  end
