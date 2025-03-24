@@ -184,21 +184,21 @@ pipeline {
                             BUILD_TARGET = "iOS"
                             APP_EXT = "ipa"
                             BUILD_NAME = "${GAME_NAME}"
-                            BUILD_CL = "-buildTarget ios"
+                            BUILD_CL = "-executeMethod TinyWizard.Core.EditorBuild.BuildIOS"
                             ADDRESSABLES_FOLDER = "iOS"
                             break
                         case "IOSRelease":
                             BUILD_TARGET = "iOS"
                             APP_EXT = "app"
                             BUILD_NAME = "${GAME_NAME}"
-                            BUILD_CL = "-buildTarget ios"
+                            BUILD_CL = "-executeMethod TinyWizard.Core.EditorBuild.BuildIOS"
                             ADDRESSABLES_FOLDER = "iOS"
                             break
                         case "IOSStaging":
                             BUILD_TARGET = "iOS"
                             APP_EXT = "app"
                             BUILD_NAME = "${GAME_NAME}"
-                            BUILD_CL = "-buildTarget ios"
+                            BUILD_CL = "-executeMethod TinyWizard.Core.EditorBuild.BuildIOS"
                             ADDRESSABLES_FOLDER = "iOS"
                             break
                         case "LinuxDevelop":
@@ -301,9 +301,8 @@ pipeline {
                             "-logFile - " + 
                             "-projectPath \"$WORKSPACE\" " + 
                             "$SCRIPTING_BACKEND" +
-                            //"-buildTarget ${BUILD_TARGET} " +
+                            "-buildTarget ${BUILD_TARGET} " +
                             "${BUILD_CL} " + 
-							//--activeBuildProfile = "" + 
                             "-buildPath " + updatePath("builds\\${currentBuild.displayName}\\${BUILD_NAME}");
 
                     if(params.ADDRESSABLES) {
