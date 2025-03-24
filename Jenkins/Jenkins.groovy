@@ -44,9 +44,9 @@ pipeline {
                     BUILD_DISPLAY_NUMBER = BUILD_NUMBER.toString().padLeft(5, "0")
                     def branchName = params.BRANCH.replace("dev-TWBR-", "").replace("-", "_")
                     if(branchName == "main") {
-                        currentBuild.displayName = "TimelessRivals_${params.TYPE}_${BUILD_DISPLAY_NUMBER}"
+                        currentBuild.displayName = "JumpPlayground${params.TYPE}_${BUILD_DISPLAY_NUMBER}"
                     } else {
-                        currentBuild.displayName = "TimelessRivals_${branchName}_${params.TYPE}_${BUILD_DISPLAY_NUMBER}"
+                        currentBuild.displayName = "JumpPlayground${branchName}_${params.TYPE}_${BUILD_DISPLAY_NUMBER}"
                     }
                     if(params.NOTIFY) {
                         if(params.SUBTARGET == "Player") {
@@ -80,7 +80,7 @@ pipeline {
                     } catch (err) {
                         echo "Git repository does not exist. Cloning..."
                         deleteDir()
-                        cmd "git clone --depth 1 -b \"${params.BRANCH}\" git@github.com:tinywizardgames/tinyWizardRoyale.git ."
+                        cmd "git clone --depth 1 -b \"${params.BRANCH}\" git@github.com:mkawick/JumpPlayground.git ."
                     }
                     cmd "git config remote.origin.fetch +refs/heads/${params.BRANCH}:refs/remotes/origin/${params.BRANCH}"
                     cmd "git remote update"
@@ -770,7 +770,7 @@ void ArchiveIOS() {
     def install_url;
     withAWS(region:'eu-west-2', credentials:'868aa55f-6aa4-4962-95d5-e00a7b95e1e1') {
         archiveArtifacts artifacts: updatePath("builds\\${currentBuild.displayName}.${APP_EXT}"), onlyIfSuccessful: true
-        def download_url = s3PresignURL(bucket: "twbr-game-server-builds-euw2", key: "TimelessRivals/${BUILD_NUMBER}/artifacts/builds/${currentBuild.displayName}.${APP_EXT}", durationInSeconds: 604800);
+        def download_url = s3PresignURL(bucket: "twbr-game-server-builds-euw2", key: "JumpPlayground/${BUILD_NUMBER}/artifacts/builds/${currentBuild.displayName}.${APP_EXT}", durationInSeconds: 604800);
         echo download_url
 
         def manifestContent = readFile(file: updatePath("Jenkins\\manifest.plist"))
@@ -783,9 +783,9 @@ void ArchiveIOS() {
                         payloadSigningEnabled: true, 
                         file: updatePath("Jenkins\\manifest.plist"), 
                         bucket:"twbr-game-server-builds-euw2", 
-                        path: "TimelessRivals/${BUILD_NUMBER}/artifacts/Jenkins/manifest.plist",
+                        path: "JumpPlayground/${BUILD_NUMBER}/artifacts/Jenkins/manifest.plist",
                         tags: '[public:yes]')
-        def manifest_url = "https://twbr-game-server-builds-euw2.s3.eu-west-2.amazonaws.com/TimelessRivals/${BUILD_NUMBER}/artifacts/Jenkins/manifest.plist"
+        def manifest_url = "https://twbr-game-server-builds-euw2.s3.eu-west-2.amazonaws.com/JumpPlayground/${BUILD_NUMBER}/artifacts/Jenkins/manifest.plist"
         echo manifest_url
 
         def htmlContent = readFile(file: updatePath("Jenkins\\install_ios.html"))
@@ -798,9 +798,9 @@ void ArchiveIOS() {
                         payloadSigningEnabled: true, 
                         file: updatePath("Jenkins\\install_ios.html"), 
                         bucket:"twbr-game-server-builds-euw2", 
-                        path: "TimelessRivals/${BUILD_NUMBER}/artifacts/Jenkins/install_ios.html",
+                        path: "JumpPlayground/${BUILD_NUMBER}/artifacts/Jenkins/install_ios.html",
                         tags: '[public:yes]')
-        install_url = "https://twbr-game-server-builds-euw2.s3.eu-west-2.amazonaws.com/TimelessRivals/${BUILD_NUMBER}/artifacts/Jenkins/install_ios.html"
+        install_url = "https://twbr-game-server-builds-euw2.s3.eu-west-2.amazonaws.com/JumpPlayground/${BUILD_NUMBER}/artifacts/Jenkins/install_ios.html"
         echo install_url
 
         if(params.ADDRESSABLES) {
