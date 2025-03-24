@@ -301,9 +301,9 @@ pipeline {
                             "-logFile - " + 
                             "-projectPath \"$WORKSPACE\" " + 
                             "$SCRIPTING_BACKEND" +
-                            "-buildTarget ${BUILD_TARGET} " +
+                            //"-buildTarget ${BUILD_TARGET} " +
                             "${BUILD_CL} " + 
-                            "-buildPath " + updatePath("builds\\${currentBuild.displayName}\\${BUILD_NAME}");
+                            "-build " + updatePath("builds\\${currentBuild.displayName}\\${BUILD_NAME}");
 
                     if(params.ADDRESSABLES) {
                         args += " -addressables";
