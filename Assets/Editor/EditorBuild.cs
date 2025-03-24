@@ -18,7 +18,7 @@ namespace TinyWizard.Core
                 target = args.Get<BuildTarget>("buildTarget"),
             });
 
-            Environment.Exit(report.summary.result == UnityEditor.Build.Reporting.BuildResult.Succeeded ? 0 : 1);
+           // Environment.Exit(report.summary.result == UnityEditor.Build.Reporting.BuildResult.Succeeded ? 0 : 1);
         }
     }
 }
