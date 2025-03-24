@@ -243,7 +243,7 @@ namespace KinematicCharacterControllerNamespace
                 if (mover.MoveWithPhysics)
                 {
                     mover.Rigidbody.position = mover.InitialTickPosition;
-                    mover.Rigidbody.rotation = mover.InitialTickRotation;
+                    mover.Rigidbody.rotation = mover.InitialTickRotation.normalized;
 
                     mover.Rigidbody.MovePosition(mover.TransientPosition);
                     mover.Rigidbody.MoveRotation(mover.TransientRotation);

@@ -1,7 +1,7 @@
 pipeline {
     parameters {
         choice(name: 'TYPE', choices: ['WindowsDevelop', 'WindowsRelease', 'WindowsStaging', 'AndroidDevelop', 'AndroidRelease', 'AndroidStaging', 'IOSDevelop', 'IOSRelease', 'IOSStaging']) // 'LinuxDevelop', 'LinuxRelease', 'LinuxStaging'
-        string(name: 'BRANCH', defaultValue: 'dev', trim: true, description: "Case is most likely important.")
+        string(name: 'BRANCH', defaultValue: 'main', trim: true, description: "Case is most likely important.")
         choice(name: 'SCRIPTING', choices: ['IL2CPP', 'Default', 'Mono2x'], description: "This overrides the scripting backend. Default will use whatever is in the build configs.")
         choice(name: 'SUBTARGET', choices: ['Player', 'Server'])
         booleanParam(name: 'BUILD', defaultValue: true, description: 'Whether or not to build the unity project.')
@@ -43,7 +43,7 @@ pipeline {
                     BUILD_USER = cause.userName
                     BUILD_DISPLAY_NUMBER = BUILD_NUMBER.toString().padLeft(5, "0")
                     def branchName = params.BRANCH.replace("dev-TWBR-", "").replace("-", "_")
-                    if(branchName == "dev") {
+                    if(branchName == "main") {
                         currentBuild.displayName = "TimelessRivals_${params.TYPE}_${BUILD_DISPLAY_NUMBER}"
                     } else {
                         currentBuild.displayName = "TimelessRivals_${branchName}_${params.TYPE}_${BUILD_DISPLAY_NUMBER}"
@@ -121,7 +121,7 @@ pipeline {
                     //VERSION = settings.PlayerSettings.bundleVersion.toString()
                     VERSION = BUILD_DISPLAY_NUMBER
                     def branchName = params.BRANCH.replace("dev-TWBR-", "").replace("-", "_")
-                    if(branchName == "dev") {
+                    if(branchName == "main") {
                         currentBuild.displayName = "${GAME_NAME}_${params.TYPE}_${BUILD_DISPLAY_NUMBER}"
                     } else {
                         currentBuild.displayName = "${GAME_NAME}_${branchName}_${params.TYPE}_${BUILD_DISPLAY_NUMBER}"
@@ -184,21 +184,21 @@ pipeline {
                             BUILD_TARGET = "iOS"
                             APP_EXT = "ipa"
                             BUILD_NAME = "${GAME_NAME}"
-                            BUILD_CL = "-executeMethod TinyWizard.Core.Editor.EditorMenus.BuildIOSDevelop"
+                            BUILD_CL = "-buildTarget ios"
                             ADDRESSABLES_FOLDER = "iOS"
                             break
                         case "IOSRelease":
                             BUILD_TARGET = "iOS"
                             APP_EXT = "app"
                             BUILD_NAME = "${GAME_NAME}"
-                            BUILD_CL = "-executeMethod TinyWizard.Core.Editor.EditorMenus.BuildIOSRelease"
+                            BUILD_CL = "-buildTarget ios"
                             ADDRESSABLES_FOLDER = "iOS"
                             break
                         case "IOSStaging":
                             BUILD_TARGET = "iOS"
                             APP_EXT = "app"
                             BUILD_NAME = "${GAME_NAME}"
-                            BUILD_CL = "-executeMethod TinyWizard.Core.Editor.EditorMenus.BuildIOSStaging"
+                            BUILD_CL = "-buildTarget ios"
                             ADDRESSABLES_FOLDER = "iOS"
                             break
                         case "LinuxDevelop":
