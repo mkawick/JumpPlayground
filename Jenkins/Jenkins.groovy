@@ -303,7 +303,8 @@ pipeline {
                             "$SCRIPTING_BACKEND" +
                             //"-buildTarget ${BUILD_TARGET} " +
                             "${BUILD_CL} " + 
-                            "-build " + updatePath("builds\\${currentBuild.displayName}\\${BUILD_NAME}");
+							//--activeBuildProfile = "" + 
+                            "-buildPath " + updatePath("builds\\${currentBuild.displayName}\\${BUILD_NAME}");
 
                     if(params.ADDRESSABLES) {
                         args += " -addressables";
