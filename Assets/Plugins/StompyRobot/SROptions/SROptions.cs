@@ -52,12 +52,12 @@ public partial class SROptions : INotifyPropertyChanged
         remove { InterfacePropertyChangedEventHandler -= value; }
     }
 
-    float _myRangeProperty;
+   /* float _myRangeProperty;
     [NumberRange(0, 10)]
     [Category("Mickey loves me")]
     public float MyRangeProperty
     {
         get { return _myRangeProperty; }
         set { _myRangeProperty = value; }
-    }
+    }*/
 }
