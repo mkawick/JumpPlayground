@@ -1,0 +1,19 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!221 &22100000
+AnimatorOverrideController:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_Name: Char_006_Crystallo_MenuOverride
+  m_Controller: {fileID: 9100000, guid: 255060131f7abd245bf8654321bd81fb, type: 2}
+  m_Clips:
+  - m_OriginalClip: {fileID: 7400000, guid: a8fb0e0c94c4e4e4bb722f7d0f36ef56, type: 2}
+    m_OverrideClip: {fileID: -7987766300538448532, guid: d5c746608d32f644ba59a6929071490a,
+      type: 3}
+  - m_OriginalClip: {fileID: 7400000, guid: a24ff2deba73c0646b6e628a872eb690, type: 2}
+    m_OverrideClip: {fileID: -7987766300538448532, guid: d5c746608d32f644ba59a6929071490a,
+      type: 3}
+  - m_OriginalClip: {fileID: 7400000, guid: 1e74d1386f527204aa8784fa7695616e, type: 2}
+    m_OverrideClip: {fileID: 7400000, guid: 3e720782b2bcbbf4e8ccd4c400174c69, type: 2}
