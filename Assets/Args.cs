@@ -94,7 +94,7 @@ namespace TinyWizard.Utilities {
         /// <summary>Adds args to these args. You can then use it normally such as calling 
         /// <see cref="Get(string)"/> or <see cref="Use(string)"/> to get the value.</summary>
         public void AddArgs(Args args) {
-            if (args.Params.IsNullOrEmpty()) {
+            if (args.Params == null || args.Params.Count == 0) {
                 return;
             }
             foreach (var entry in args.Params) {
