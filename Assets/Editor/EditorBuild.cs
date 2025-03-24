@@ -14,7 +14,7 @@ namespace TinyWizard.Core
             {
                 locationPathName = args.Get("buildPath"),
                 options = BuildOptions.Development,
-                scenes = new string[] { "Assets/CharacterPlayground" },
+                scenes = new string[] { "Assets/CharacterPlayground.unity" },
                 target = args.Get<BuildTarget>("buildTarget"),
             });
 
