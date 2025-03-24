@@ -224,6 +224,10 @@ pipeline {
                             break
                     }
 
+					echo "${params.TYPE}"
+					echo "${BUILD_CL}"					
+					echo "${ADDRESSABLES_FOLDER}"
+					echo "${GAME_NAME}"					
                     //echo "Installing Unity"
                     //installEditor()
                     
