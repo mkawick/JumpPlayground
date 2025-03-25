@@ -1,9 +1,5 @@
-using System;
-using System.ComponentModel;
 using SRDebugger;
-using SRF.Service;
 using UnityEngine;
-using UnityEngine.Scripting;
 using KinematicCharacterControllerNamespace;
 
 public class SRDebugOptions : MonoBehaviour
@@ -12,6 +8,7 @@ public class SRDebugOptions : MonoBehaviour
     int _someInternalField2;
     private float _myRangeProperty = 0f;
     [SerializeField] TinyWizCharacterController TinyWizCharacterController;
+    [SerializeField] KinematicCharacterConfig KinematicCharacterConfig;
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
@@ -40,20 +37,26 @@ public class SRDebugOptions : MonoBehaviour
             (newValue) => TinyWizCharacterController.Gravity = new Vector3(0, newValue, 0)
         );
 
+        var animRunSpeedOption = OptionDefinition.Create(
+            "Anim run speed",
+            () => KinematicCharacterConfig.animationRunSpeedFudgeFactor,
+            (newValue) => KinematicCharacterConfig.animationRunSpeedFudgeFactor = newValue
+        );
+
         SRDebug.Instance.AddOption(runSpeedOption);
         SRDebug.Instance.AddOption(jumpVertOption);
         SRDebug.Instance.AddOption(airSpeedOption);
         SRDebug.Instance.AddOption(gravityOption);
-
+        SRDebug.Instance.AddOption(animRunSpeedOption);
     }
 
-    [NumberRange(0, 10)]
+    /*[NumberRange(0, 10)]
     [Category("My Category")]
     public float MyRangeProperty
     {
         get { return _myRangeProperty; }
         set { _myRangeProperty = value; }
-    }
+    }*/
 
     // Update is called once per frame
     void Update()

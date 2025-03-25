@@ -4608,6 +4608,7 @@ MonoBehaviour:
     serializedVersion: 2
     m_Bits: 4294967295
   DiscreteCollisionEvents: 0
+  animationRunSpeedFudgeFactor: 1
   StepHandling: 1
   MaxStepHeight: 0.5
   AllowSteppingWithoutStableGrounding: 0
@@ -16068,6 +16069,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   TinyWizCharacterController: {fileID: 1234631576}
+  KinematicCharacterConfig: {fileID: 1234631575}
 --- !u!1 &732896443
 GameObject:
   m_ObjectHideFlags: 0
@@ -19134,6 +19136,7 @@ MonoBehaviour:
     serializedVersion: 2
     m_Bits: 4294967295
   DiscreteCollisionEvents: 0
+  animationRunSpeedFudgeFactor: 1
   StepHandling: 1
   MaxStepHeight: 0.5
   AllowSteppingWithoutStableGrounding: 0
@@ -28545,6 +28548,7 @@ MonoBehaviour:
     serializedVersion: 2
     m_Bits: 4294967295
   DiscreteCollisionEvents: 0
+  animationRunSpeedFudgeFactor: 2.5
   StepHandling: 2
   MaxStepHeight: 0.25
   AllowSteppingWithoutStableGrounding: 0
@@ -45129,7 +45133,7 @@ MonoBehaviour:
   FixedRotationFollowing: {x: -35, y: 0, z: 35}
   FollowingSharpness: 10000
   DefaultDistance: 23
-  MinDistance: 0
+  MinDistance: 23
   MaxDistance: 23
   DistanceMovementSpeed: 5
   DistanceMovementSharpness: 10
@@ -51417,6 +51421,7 @@ MonoBehaviour:
     serializedVersion: 2
     m_Bits: 4294967295
   DiscreteCollisionEvents: 0
+  animationRunSpeedFudgeFactor: 1
   StepHandling: 1
   MaxStepHeight: 0.5
   AllowSteppingWithoutStableGrounding: 0
@@ -52402,6 +52407,7 @@ MonoBehaviour:
     serializedVersion: 2
     m_Bits: 4294967295
   DiscreteCollisionEvents: 0
+  animationRunSpeedFudgeFactor: 1
   StepHandling: 2
   MaxStepHeight: 0.5
   AllowSteppingWithoutStableGrounding: 0

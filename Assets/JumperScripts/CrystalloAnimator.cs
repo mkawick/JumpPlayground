@@ -6,6 +6,9 @@ public class CrystalloAnimator : MonoBehaviour
     [SerializeField] TinyWizCharacterController characterController;
     [SerializeField] KinematicCharacterConfig motor;
     [SerializeField] Animator Animator;
+    [SerializeField, Range(0.1f, 3)] float stopThreshold = 1;
+
+    bool wasRunning = false;
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
@@ -24,13 +27,17 @@ public class CrystalloAnimator : MonoBehaviour
             Animator.SetBool("Jump", false);
         }
 
-        if (motor.IsMoving() == true)
+        float speed = motor.AnimatedMovementSpeed();
+
+        if (speed > 3)
         {
-            Animator.SetFloat("ForwardMotion", 1);
+            wasRunning = true;
         }
-        else
+        if (speed < stopThreshold)// this needs to degrade over time
         {
-            Animator.SetFloat("ForwardMotion", 0);
+            speed = 0;
+            wasRunning = false;
         }
+        Animator.SetFloat("ForwardMotion", speed);
     }
 }

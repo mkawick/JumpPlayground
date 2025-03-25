@@ -216,6 +216,9 @@ namespace KinematicCharacterControllerNamespace
         [Tooltip("Notifies the Character Controller when discrete collisions are detected")]
         public bool DiscreteCollisionEvents = false;
 
+        [Tooltip("multiplies the animation run speed")]
+        public float animationRunSpeedFudgeFactor = 1;
+
 
         [Header("Step settings")]
         /// <summary>
@@ -976,7 +979,7 @@ namespace KinematicCharacterControllerNamespace
                     BaseVelocity -= tmpVelocityFromCurrentAttachedRigidbody;
                 }
 
-                // Process additionnal Velocity from attached rigidbody
+                // Process additional Velocity from attached rigidbody
                 _attachedRigidbodyVelocity = _cachedZeroVector;
                 if (_attachedRigidbody)
                 {
@@ -1004,7 +1007,7 @@ namespace KinematicCharacterControllerNamespace
 
                     if (_solveMovementCollisions)
                     {
-                        // Perform the move from rgdbdy velocity
+                        // Perform the move from rigid body velocity
                         InternalCharacterMove(ref _attachedRigidbodyVelocity, deltaTime);
                     }
                     else
@@ -1156,7 +1159,6 @@ namespace KinematicCharacterControllerNamespace
             // Handle velocity
             CharacterController.UpdateVelocity(ref BaseVelocity, deltaTime);
 
-            //this.CharacterController.UpdateVelocity(ref BaseVelocity, deltaTime);
             if (BaseVelocity.magnitude < MinVelocityMagnitude)
             {
                 BaseVelocity = Vector3.zero;
@@ -1665,15 +1667,16 @@ namespace KinematicCharacterControllerNamespace
             return GroundingStatus.IsStableOnGround;
         }
 
-        public bool IsMoving()
+        public float AnimatedMovementSpeed()
         {
-            var groundedVelocity = new Vector3(BaseVelocity.x, BaseVelocity.z);
+            return GroundSpeed() * animationRunSpeedFudgeFactor;
+        }
 
-            if(groundedVelocity.sqrMagnitude > 0)
-            {
-                return true;
-            }
-            return false;
+        public float GroundSpeed()
+        {
+            var groundedVelocity = new Vector3(BaseVelocity.x, 0, BaseVelocity.z);
+
+            return groundedVelocity.magnitude;
         }
 
         /// <summary>
