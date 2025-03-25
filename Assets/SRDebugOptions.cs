@@ -43,11 +43,18 @@ public class SRDebugOptions : MonoBehaviour
             (newValue) => KinematicCharacterConfig.animationRunSpeedFudgeFactor = newValue
         );
 
+        var dashSpeedOption = OptionDefinition.Create(
+            "Dash run speed",
+            () => TinyWizCharacterController.DashSpeedMultiplier,
+            (newValue) => TinyWizCharacterController.DashSpeedMultiplier = newValue
+        );
+
         SRDebug.Instance.AddOption(runSpeedOption);
         SRDebug.Instance.AddOption(jumpVertOption);
         SRDebug.Instance.AddOption(airSpeedOption);
         SRDebug.Instance.AddOption(gravityOption);
         SRDebug.Instance.AddOption(animRunSpeedOption);
+        SRDebug.Instance.AddOption(dashSpeedOption);
     }
 
     /*[NumberRange(0, 10)]

@@ -9,6 +9,7 @@ namespace KinematicCharacterControllerNamespace
     public enum CharacterState
     {
         Default,
+        Dashing
     }
 
     public enum OrientationMethod
@@ -25,6 +26,7 @@ namespace KinematicCharacterControllerNamespace
         public bool JumpDown;
         public bool CrouchDown;
         public bool CrouchUp;
+        public int dashStartFrame;
     }
 
     public struct AICharacterInputs
@@ -71,6 +73,10 @@ namespace KinematicCharacterControllerNamespace
         public Transform CameraFollowPoint;
         public float CrouchedCapsuleHeight = 1f;
 
+        [Range(3,16)]
+        public float DashSpeedMultiplier = 3;
+        public int dashFrameLength = 8;
+
         public CharacterState CurrentCharacterState { get; private set; }
 
         private Collider[] _probedColliders = new Collider[8];
@@ -85,6 +91,7 @@ namespace KinematicCharacterControllerNamespace
         private Vector3 _internalVelocityAdd = Vector3.zero;
         private bool _shouldBeCrouching = false;
         private bool _isCrouching = false;
+        private int _dashExpiryFrame = 0;
 
         private Vector3 lastInnerNormal = Vector3.zero;
         private Vector3 lastOuterNormal = Vector3.zero;
@@ -120,6 +127,11 @@ namespace KinematicCharacterControllerNamespace
                     {
                         break;
                     }
+                case CharacterState.Dashing:
+                    {
+                        _dashExpiryFrame = Time.frameCount + dashFrameLength;
+                        break;
+                    }
             }
         }
 
@@ -134,6 +146,18 @@ namespace KinematicCharacterControllerNamespace
                     {
                         break;
                     }
+                case CharacterState.Dashing:
+                    {
+                        break;
+                    }
+            }
+        }
+
+        void TryToExpireDash()
+        {
+            if(_dashExpiryFrame < Time.frameCount)
+            {
+                TransitionToState(CharacterState.Default);
             }
         }
 
@@ -152,6 +176,11 @@ namespace KinematicCharacterControllerNamespace
                 cameraPlanarDirection = Vector3.ProjectOnPlane(inputs.CameraRotation * Vector3.up, Motor.CharacterUp).normalized;
             }
             Quaternion cameraPlanarRotation = Quaternion.LookRotation(cameraPlanarDirection, Motor.CharacterUp);
+
+            if(inputs.dashStartFrame != 0)
+            {
+                TransitionToState(CharacterState.Dashing);
+            }
 
             switch (CurrentCharacterState)
             {
@@ -194,6 +223,33 @@ namespace KinematicCharacterControllerNamespace
                             _shouldBeCrouching = false;
                         }
 
+                        break;
+                    }
+                case CharacterState.Dashing:
+                    {
+                        // Move and look inputs
+                        _moveInputVector = cameraPlanarRotation * moveInputVector;
+                        _moveInputVector *= DashSpeedMultiplier;
+                        TryToExpireDash();
+
+                        switch (OrientationMethod)
+                        {
+                            case OrientationMethod.TowardsCamera:
+                                _lookInputVector = cameraPlanarDirection;
+                                break;
+                            case OrientationMethod.TowardsMovement:
+                                _lookInputVector = _moveInputVector.normalized;
+                                break;
+                        }
+
+                        // Jumping input
+                        if (inputs.JumpDown)
+                        {
+                            _timeSinceJumpRequested = 0f;
+                            _jumpRequested = true;
+                        }
+
+                        _shouldBeCrouching = false; // no crouching during dash
                         break;
                     }
             }
@@ -270,6 +326,10 @@ namespace KinematicCharacterControllerNamespace
                         }
                         break;
                     }
+                case CharacterState.Dashing:// dashing is temporary and nothing should change
+                    {
+                        break;
+                    }
             }
         }
 
@@ -283,6 +343,7 @@ namespace KinematicCharacterControllerNamespace
             switch (CurrentCharacterState)
             {
                 case CharacterState.Default:
+                case CharacterState.Dashing:
                     {
                         // Ground movement
                         if (Motor.GroundingStatus.IsStableOnGround)
@@ -397,6 +458,7 @@ namespace KinematicCharacterControllerNamespace
             switch (CurrentCharacterState)
             {
                 case CharacterState.Default:
+                case CharacterState.Dashing:
                     {
                         // Handle jump-related values
                         {

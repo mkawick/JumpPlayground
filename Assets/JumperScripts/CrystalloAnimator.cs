@@ -38,6 +38,13 @@ public class CrystalloAnimator : MonoBehaviour
             speed = 0;
             wasRunning = false;
         }
-        Animator.SetFloat("ForwardMotion", speed);
+        if(characterController.CurrentCharacterState == CharacterState.Default)
+        {
+            Animator.SetFloat("ForwardMotion", speed);
+        }
+        else if (characterController.CurrentCharacterState == CharacterState.Dashing)
+        {
+            Animator.SetBool("Casting", true);
+        }
     }
 }

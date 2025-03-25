@@ -11,6 +11,7 @@ namespace KinematicCharacterControllerNamespace
         public TinyWizCharacterController Character;
         public IsoCharacterCamera CharacterCamera;
         bool jumpPressed;
+        bool dashPressed;
 
         private const string MouseXInput = "Mouse X";
         private const string MouseYInput = "Mouse Y";
@@ -109,6 +110,16 @@ namespace KinematicCharacterControllerNamespace
             characterInputs.CrouchDown = Input.GetKeyDown(KeyCode.C);
             characterInputs.CrouchUp = Input.GetKeyUp(KeyCode.C);
 
+            if (dashPressed)
+            {
+                dashPressed = false; // clear
+                characterInputs.dashStartFrame = Time.frameCount;
+            }
+            else
+            {
+                characterInputs.dashStartFrame = 0;
+            }
+
             // Apply inputs to character
             Character.SetInputs(ref characterInputs);
             jumpPressed = false;
@@ -117,6 +128,10 @@ namespace KinematicCharacterControllerNamespace
         public void PlayerJumpButtonPressed()
         {
             jumpPressed = true;
+        }
+        public void DashButtonPressed()
+        {
+            dashPressed = true;
         }
     }
 }
