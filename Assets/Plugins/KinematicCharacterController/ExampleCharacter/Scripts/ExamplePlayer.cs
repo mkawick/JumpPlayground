@@ -100,7 +100,7 @@ namespace KinematicCharacterControllerNamespace
             float y = Input.GetAxisRaw(VerticalInput) + VirtualJoystick.GetAxis("Vertical", 16);
             float x = Input.GetAxisRaw(HorizontalInput) + VirtualJoystick.GetAxis("Horizontal", 16);
 
-            Vector2 newDir = Rotate(new Vector2(x, y), 45);
+            Vector2 newDir = Rotate(new Vector2(x, y), -45);
 
             characterInputs.MoveAxisForward = newDir.y;
             characterInputs.MoveAxisRight = newDir.x;
