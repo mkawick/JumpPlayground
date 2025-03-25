@@ -21,6 +21,12 @@ public class SRDebugOptions : MonoBehaviour
             () => TinyWizCharacterController.MaxStableMoveSpeed,
             (newValue) => TinyWizCharacterController.MaxStableMoveSpeed = newValue
         );
+        var runAccelOption = OptionDefinition.Create(
+            "Run speed accel",
+            () => TinyWizCharacterController.StableMovementAcceleration,
+            (newValue) => TinyWizCharacterController.StableMovementAcceleration = newValue
+        );
+        
         var jumpVertOption = OptionDefinition.Create(
             "Jump strength",
             () => TinyWizCharacterController.JumpUpSpeed,
@@ -49,7 +55,9 @@ public class SRDebugOptions : MonoBehaviour
             (newValue) => TinyWizCharacterController.DashSpeedMultiplier = newValue
         );
 
+        
         SRDebug.Instance.AddOption(runSpeedOption);
+        SRDebug.Instance.AddOption(runAccelOption);
         SRDebug.Instance.AddOption(jumpVertOption);
         SRDebug.Instance.AddOption(airSpeedOption);
         SRDebug.Instance.AddOption(gravityOption);

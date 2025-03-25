@@ -48,7 +48,7 @@ namespace KinematicCharacterControllerNamespace
 
         [Header("Stable Movement")]
         public float MaxStableMoveSpeed = 10f;
-        public float StableMovementSharpness = 15f;
+        public float StableMovementAcceleration = 15f;
         public float OrientationSharpness = 10f;
         public OrientationMethod OrientationMethod = OrientationMethod.TowardsCamera;
 
@@ -361,7 +361,11 @@ namespace KinematicCharacterControllerNamespace
                             Vector3 targetMovementVelocity = reorientedInput * MaxStableMoveSpeed;
 
                             // Smooth movement Velocity
-                            currentVelocity = Vector3.Lerp(currentVelocity, targetMovementVelocity, 1f - Mathf.Exp(-StableMovementSharpness * deltaTime));
+                            currentVelocity = Vector3.Lerp(currentVelocity, targetMovementVelocity, 1f - Mathf.Exp(-StableMovementAcceleration * deltaTime));
+                        /*    if(Mathf.Approximately(currentVelocity.magnitude, 0) == false)
+                            {
+                                Debug.Log($"TWCC cvm {currentVelocityMagnitude:F2}, tmv {targetMovementVelocity:F2}, fvmag {currentVelocity.magnitude:F2}, miv {_moveInputVector:F2} ");
+                            }*/
                         }
                         // Air movement
                         else

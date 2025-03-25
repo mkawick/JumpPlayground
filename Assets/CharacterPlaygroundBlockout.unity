@@ -785,7 +785,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Motor: {fileID: 268961117}
   MaxStableMoveSpeed: 6.54
-  StableMovementSharpness: 15
+  StableMovementAcceleration: 15
   OrientationSharpness: 20
   OrientationMethod: 1
   MaxAirMoveSpeed: 7.5
@@ -1543,6 +1543,86 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 114059935477735444, guid: 6babfe004051e72409d5321118266db5, type: 3}
+      propertyPath: m_FontData.m_FontSize
+      value: 22
+      objectReference: {fileID: 0}
+    - target: {fileID: 114096052574165896, guid: 6babfe004051e72409d5321118266db5, type: 3}
+      propertyPath: m_FontData.m_FontSize
+      value: 22
+      objectReference: {fileID: 0}
+    - target: {fileID: 114136477695530754, guid: 6babfe004051e72409d5321118266db5, type: 3}
+      propertyPath: m_FontData.m_FontSize
+      value: 22
+      objectReference: {fileID: 0}
+    - target: {fileID: 114212974676994818, guid: 6babfe004051e72409d5321118266db5, type: 3}
+      propertyPath: m_FontData.m_FontSize
+      value: 22
+      objectReference: {fileID: 0}
+    - target: {fileID: 114364121247834656, guid: 6babfe004051e72409d5321118266db5, type: 3}
+      propertyPath: m_FontData.m_FontSize
+      value: 22
+      objectReference: {fileID: 0}
+    - target: {fileID: 114524354276376198, guid: 6babfe004051e72409d5321118266db5, type: 3}
+      propertyPath: m_FontData.m_FontSize
+      value: 22
+      objectReference: {fileID: 0}
+    - target: {fileID: 114571333611172312, guid: 6babfe004051e72409d5321118266db5, type: 3}
+      propertyPath: m_FontData.m_FontSize
+      value: 22
+      objectReference: {fileID: 0}
+    - target: {fileID: 114573574091444204, guid: 6babfe004051e72409d5321118266db5, type: 3}
+      propertyPath: m_FontData.m_FontSize
+      value: 22
+      objectReference: {fileID: 0}
+    - target: {fileID: 114626742301301008, guid: 6babfe004051e72409d5321118266db5, type: 3}
+      propertyPath: m_FontData.m_FontSize
+      value: 22
+      objectReference: {fileID: 0}
+    - target: {fileID: 114821588659937904, guid: 6babfe004051e72409d5321118266db5, type: 3}
+      propertyPath: m_FontData.m_FontSize
+      value: 22
+      objectReference: {fileID: 0}
+    - target: {fileID: 224017663050097440, guid: 6babfe004051e72409d5321118266db5, type: 3}
+      propertyPath: m_SizeDelta.x
+      value: 123.69
+      objectReference: {fileID: 0}
+    - target: {fileID: 224017663050097440, guid: 6babfe004051e72409d5321118266db5, type: 3}
+      propertyPath: m_SizeDelta.y
+      value: 125.9
+      objectReference: {fileID: 0}
+    - target: {fileID: 224109760437875670, guid: 6babfe004051e72409d5321118266db5, type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: -104.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 224115918303089022, guid: 6babfe004051e72409d5321118266db5, type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: 122.20001
+      objectReference: {fileID: 0}
+    - target: {fileID: 224115918303089022, guid: 6babfe004051e72409d5321118266db5, type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: -79.2
+      objectReference: {fileID: 0}
+    - target: {fileID: 224151502622032890, guid: 6babfe004051e72409d5321118266db5, type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: 122.20001
+      objectReference: {fileID: 0}
+    - target: {fileID: 224151502622032890, guid: 6babfe004051e72409d5321118266db5, type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: -25.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 224156046991681212, guid: 6babfe004051e72409d5321118266db5, type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: 122.2
+      objectReference: {fileID: 0}
+    - target: {fileID: 224156046991681212, guid: 6babfe004051e72409d5321118266db5, type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: -104.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 224162762527500846, guid: 6babfe004051e72409d5321118266db5, type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: 122.2
+      objectReference: {fileID: 0}
     - target: {fileID: 224221452225482132, guid: 6babfe004051e72409d5321118266db5, type: 3}
       propertyPath: m_Pivot.x
       value: 0
@@ -1614,6 +1694,26 @@ PrefabInstance:
     - target: {fileID: 224221452225482132, guid: 6babfe004051e72409d5321118266db5, type: 3}
       propertyPath: m_AnchoredPosition.y
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 224222274575079952, guid: 6babfe004051e72409d5321118266db5, type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: -51.599976
+      objectReference: {fileID: 0}
+    - target: {fileID: 224239084986976180, guid: 6babfe004051e72409d5321118266db5, type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: 122.20001
+      objectReference: {fileID: 0}
+    - target: {fileID: 224239084986976180, guid: 6babfe004051e72409d5321118266db5, type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: -51.6
+      objectReference: {fileID: 0}
+    - target: {fileID: 224712496210128278, guid: 6babfe004051e72409d5321118266db5, type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: -79.20001
+      objectReference: {fileID: 0}
+    - target: {fileID: 224874574535167212, guid: 6babfe004051e72409d5321118266db5, type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: -25.5
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -4353,7 +4453,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Motor: {fileID: 1294728073}
   MaxStableMoveSpeed: 6.54
-  StableMovementSharpness: 15
+  StableMovementAcceleration: 25
   OrientationSharpness: 20
   OrientationMethod: 1
   MaxAirMoveSpeed: 7.5
@@ -10827,7 +10927,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Motor: {fileID: 1959392725}
   MaxStableMoveSpeed: 10
-  StableMovementSharpness: 15
+  StableMovementAcceleration: 15
   OrientationSharpness: 20
   OrientationMethod: 1
   MaxAirMoveSpeed: 10
