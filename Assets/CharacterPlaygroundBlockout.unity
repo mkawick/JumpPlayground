@@ -2930,7 +2930,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 1020576454600066, guid: 6babfe004051e72409d5321118266db5, type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 1137939539004846, guid: 6babfe004051e72409d5321118266db5, type: 3}
       propertyPath: m_IsActive
@@ -3189,6 +3189,41 @@ Transform:
   - {fileID: 246491302}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &714632314 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 3798560784475873817, guid: d407ded4a7d699947943b2577a2ccad6, type: 3}
+  m_PrefabInstance: {fileID: 961213620}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &714632319
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 714632314}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d0b148fe25e99eb48b9724523833bab1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Delegates:
+  - eventID: 2
+    callback:
+      m_PersistentCalls:
+        m_Calls:
+        - m_Target: {fileID: 1266134441}
+          m_TargetAssemblyTypeName: KinematicCharacterControllerNamespace.ExamplePlayer,
+            Assembly-CSharp-firstpass
+          m_MethodName: PlayerJumpButtonPressed
+          m_Mode: 1
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
 --- !u!4 &762089785 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 6791255758793941278, guid: 0f00f953dc53edd47a896b3862bb5d35, type: 3}
@@ -3505,15 +3540,31 @@ PrefabInstance:
     m_TransformParent: {fileID: 0}
     m_Modifications:
     - target: {fileID: 1255735541063045351, guid: d407ded4a7d699947943b2577a2ccad6, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.size
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1255735541063045351, guid: d407ded4a7d699947943b2577a2ccad6, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[1].m_Mode
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1255735541063045351, guid: d407ded4a7d699947943b2577a2ccad6, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
       objectReference: {fileID: 1266134441}
+    - target: {fileID: 1255735541063045351, guid: d407ded4a7d699947943b2577a2ccad6, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[1].m_CallState
+      value: 2
+      objectReference: {fileID: 0}
     - target: {fileID: 1255735541063045351, guid: d407ded4a7d699947943b2577a2ccad6, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
       value: PlayerJumpButtonPressed
       objectReference: {fileID: 0}
     - target: {fileID: 1255735541063045351, guid: d407ded4a7d699947943b2577a2ccad6, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
+      value: KinematicCharacterControllerNamespace.ExamplePlayer, Assembly-CSharp-firstpass
+      objectReference: {fileID: 0}
+    - target: {fileID: 1255735541063045351, guid: d407ded4a7d699947943b2577a2ccad6, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[1].m_TargetAssemblyTypeName
       value: KinematicCharacterControllerNamespace.ExamplePlayer, Assembly-CSharp-firstpass
       objectReference: {fileID: 0}
     - target: {fileID: 2761620428876216775, guid: d407ded4a7d699947943b2577a2ccad6, type: 3}
@@ -3611,6 +3662,9 @@ PrefabInstance:
       insertIndex: -1
       addedObject: {fileID: 1727261481}
     m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 3798560784475873817, guid: d407ded4a7d699947943b2577a2ccad6, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 714632319}
     - targetCorrespondingSourceObject: {fileID: 4406780128844290359, guid: d407ded4a7d699947943b2577a2ccad6, type: 3}
       insertIndex: -1
       addedObject: {fileID: 2146631864}
@@ -3895,7 +3949,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 22461286, guid: 6cf66f78a70923649abea9d2fd6530b4, type: 3}
       propertyPath: m_AnchoredPosition.x
-      value: 144.8
+      value: 144.79999
       objectReference: {fileID: 0}
     - target: {fileID: 22461286, guid: 6cf66f78a70923649abea9d2fd6530b4, type: 3}
       propertyPath: m_AnchoredPosition.y

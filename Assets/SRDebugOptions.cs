@@ -12,9 +12,6 @@ public class SRDebugOptions : MonoBehaviour
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
-        // Create a read-only option
-       /* var option01 = OptionDefinition.Create("My Option", () => _someInternalField);
-        SRDebug.Instance.AddOption(option01);*/
 
         var runSpeedOption = OptionDefinition.Create(
             "Run speed",

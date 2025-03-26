@@ -27,6 +27,7 @@ namespace KinematicCharacterControllerNamespace
         public bool CrouchDown;
         public bool CrouchUp;
         public int dashStartFrame;
+        public bool joystickReleased;
     }
 
     public struct AICharacterInputs
@@ -84,6 +85,7 @@ namespace KinematicCharacterControllerNamespace
         private Vector3 _moveInputVector;
         private Vector3 _lookInputVector;
         private bool _jumpRequested = false;
+        private bool _jumpCancelled = false;
         private bool _jumpConsumed = false;
         private bool _jumpedThisFrame = false;
         private float _timeSinceJumpRequested = Mathf.Infinity;
@@ -188,6 +190,7 @@ namespace KinematicCharacterControllerNamespace
                     {
                         // Move and look inputs
                         _moveInputVector = cameraPlanarRotation * moveInputVector;
+                        _jumpCancelled = inputs.joystickReleased;
 
                         switch (OrientationMethod)
                         {
@@ -373,6 +376,11 @@ namespace KinematicCharacterControllerNamespace
                             // Add move input
                             if (_moveInputVector.sqrMagnitude > 0f)
                             {
+                                if(_jumpCancelled)
+                                {
+                                    _jumpCancelled = false;
+                                    _moveInputVector = Vector3.zero;
+                                }
                                 Vector3 addedVelocity = _moveInputVector * AirAccelerationSpeed * deltaTime;
 
                                 Vector3 currentVelocityOnInputsPlane = Vector3.ProjectOnPlane(currentVelocity, Motor.CharacterUp);

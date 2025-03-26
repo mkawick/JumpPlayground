@@ -12,6 +12,7 @@ namespace KinematicCharacterControllerNamespace
         public IsoCharacterCamera CharacterCamera;
         bool jumpPressed;
         bool dashPressed;
+        bool joystickReleased;
 
         private const string MouseXInput = "Mouse X";
         private const string MouseYInput = "Mouse Y";
@@ -30,6 +31,12 @@ namespace KinematicCharacterControllerNamespace
             // Ignore the character's collider(s) for camera obstruction checks
             CharacterCamera.IgnoredColliders.Clear();
             CharacterCamera.IgnoredColliders.AddRange(Character.GetComponentsInChildren<Collider>());
+
+            var joyStick = GameObject.FindObjectsByType<UltimateJoystick>(FindObjectsSortMode.None);
+            joyStick[0].OnPointerUpCallback += () =>
+            {
+                joystickReleased = true;
+            };
         }
 
         private void Update()
@@ -100,8 +107,8 @@ namespace KinematicCharacterControllerNamespace
             float y = Input.GetAxisRaw(VerticalInput) + UltimateJoystick.GetVerticalAxis("Movement");// VirtualJoystick.GetAxis("Vertical", 16);
             float x = Input.GetAxisRaw(HorizontalInput) + UltimateJoystick.GetHorizontalAxis("Movement"); // VirtualJoystick.GetAxis("Horizontal", 16);
 
-            //float h = UltimateJoystick.GetHorizontalAxis("Movement");
-            //float v = UltimateJoystick.GetVerticalAxis("Movement");
+            characterInputs.joystickReleased = joystickReleased;
+            joystickReleased = false;
 
             Vector2 newDir = Rotate(new Vector2(x, y), -45);
 
