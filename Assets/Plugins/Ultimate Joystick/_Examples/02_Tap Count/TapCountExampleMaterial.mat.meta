@@ -1,0 +1,15 @@
+fileFormatVersion: 2
+guid: 2910fd85cde6c0f408dbdb4ae04397f5
+NativeFormatImporter:
+  externalObjects: {}
+  mainObjectFileID: 2100000
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+AssetOrigin:
+  serializedVersion: 1
+  productId: 27695
+  packageName: Ultimate Joystick
+  packageVersion: 4.0.0
+  assetPath: Assets/Tank & Healer Studio/Ultimate Joystick/_Examples/02_Tap Count/TapCountExampleMaterial.mat
+  uploadId: 708082

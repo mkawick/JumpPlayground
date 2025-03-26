@@ -13,8 +13,8 @@ public class SRDebugOptions : MonoBehaviour
     void Start()
     {
         // Create a read-only option
-        var option01 = OptionDefinition.Create("My Option", () => _someInternalField);
-        SRDebug.Instance.AddOption(option01);
+       /* var option01 = OptionDefinition.Create("My Option", () => _someInternalField);
+        SRDebug.Instance.AddOption(option01);*/
 
         var runSpeedOption = OptionDefinition.Create(
             "Run speed",

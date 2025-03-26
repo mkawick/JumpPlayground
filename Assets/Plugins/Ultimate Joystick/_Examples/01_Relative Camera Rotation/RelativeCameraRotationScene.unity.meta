@@ -1,0 +1,15 @@
+fileFormatVersion: 2
+guid: 0c1096747b81ae140a03bbd256c98248
+DefaultImporter:
+  externalObjects: {}
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+AssetOrigin:
+  serializedVersion: 1
+  productId: 27695
+  packageName: Ultimate Joystick
+  packageVersion: 4.0.0
+  assetPath: Assets/Tank & Healer Studio/Ultimate Joystick/_Examples/01_Relative
+    Camera Rotation/RelativeCameraRotationScene.unity
+  uploadId: 708082

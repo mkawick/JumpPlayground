@@ -1,0 +1,15 @@
+fileFormatVersion: 2
+guid: 89ffe3ed996c96643b5a43e322e56dc4
+DefaultImporter:
+  externalObjects: {}
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+AssetOrigin:
+  serializedVersion: 1
+  productId: 27695
+  packageName: Ultimate Joystick
+  packageVersion: 4.0.0
+  assetPath: Assets/Tank & Healer Studio/Ultimate Joystick/_Examples/04_Relative
+    Positioning/RelativePositioningScene.unity
+  uploadId: 708082

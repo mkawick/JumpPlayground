@@ -97,8 +97,11 @@ namespace KinematicCharacterControllerNamespace
             PlayerCharacterInputs characterInputs = new PlayerCharacterInputs();
 
             // Build the CharacterInputs struct
-            float y = Input.GetAxisRaw(VerticalInput) + VirtualJoystick.GetAxis("Vertical", 16);
-            float x = Input.GetAxisRaw(HorizontalInput) + VirtualJoystick.GetAxis("Horizontal", 16);
+            float y = Input.GetAxisRaw(VerticalInput) + UltimateJoystick.GetVerticalAxis("Movement");// VirtualJoystick.GetAxis("Vertical", 16);
+            float x = Input.GetAxisRaw(HorizontalInput) + UltimateJoystick.GetHorizontalAxis("Movement"); // VirtualJoystick.GetAxis("Horizontal", 16);
+
+            //float h = UltimateJoystick.GetHorizontalAxis("Movement");
+            //float v = UltimateJoystick.GetVerticalAxis("Movement");
 
             Vector2 newDir = Rotate(new Vector2(x, y), -45);
 

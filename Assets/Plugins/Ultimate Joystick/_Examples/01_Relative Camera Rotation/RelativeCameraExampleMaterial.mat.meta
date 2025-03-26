@@ -1,0 +1,16 @@
+fileFormatVersion: 2
+guid: 524f92a827d1d5b409ce2c1ec5653463
+NativeFormatImporter:
+  externalObjects: {}
+  mainObjectFileID: 2100000
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+AssetOrigin:
+  serializedVersion: 1
+  productId: 27695
+  packageName: Ultimate Joystick
+  packageVersion: 4.0.0
+  assetPath: Assets/Tank & Healer Studio/Ultimate Joystick/_Examples/01_Relative
+    Camera Rotation/RelativeCameraExampleMaterial.mat
+  uploadId: 708082
