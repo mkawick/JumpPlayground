@@ -24,7 +24,7 @@ platform :ios do
       )
   
       gym(
-         workspace: options[:build_path] + "/Unity-iPhone.xcworkspace",
+         project: options[:build_path] + "/Unity-iPhone.xcodeproj",
          output_directory: options[:build_path] + "/Output/", 
          output_name: "Output",
          export_method: "ad-hoc",
