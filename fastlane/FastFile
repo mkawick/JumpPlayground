@@ -22,12 +22,6 @@ platform :ios do
          api_key: api_key,
          git_url: options[:repo_url]
       )
-      
-      cocoapods(
-        clean_install: true,
-        use_bundle_exec: false,
-        podfile: options[:build_path] + "/Podfile"
-      )
   
       gym(
          workspace: options[:build_path] + "/Unity-iPhone.xcworkspace",
