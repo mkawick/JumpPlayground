@@ -5,6 +5,7 @@ namespace KinematicCharacterControllerNamespace
     {
         public TinyWizCharacterController Character;
         public IsoCharacterCamera CharacterCamera;
+        public UltimateJoystick movementJoystick;
         bool jumpPressed;
         bool dashPressed;
         bool joystickReleased;
@@ -99,8 +100,8 @@ namespace KinematicCharacterControllerNamespace
             PlayerCharacterInputs characterInputs = new PlayerCharacterInputs();
 
             // Build the CharacterInputs struct
-            float y = Input.GetAxisRaw(VerticalInput) + UltimateJoystick.GetVerticalAxis("Movement");// VirtualJoystick.GetAxis("Vertical", 16);
-            float x = Input.GetAxisRaw(HorizontalInput) + UltimateJoystick.GetHorizontalAxis("Movement"); // VirtualJoystick.GetAxis("Horizontal", 16);
+            float y = Input.GetAxisRaw(VerticalInput) + movementJoystick.GetVerticalAxis();// VirtualJoystick.GetAxis("Vertical", 16);
+            float x = Input.GetAxisRaw(HorizontalInput) + movementJoystick.GetHorizontalAxis(); // VirtualJoystick.GetAxis("Horizontal", 16);
 
             characterInputs.joystickReleased = joystickReleased;
             joystickReleased = false;
