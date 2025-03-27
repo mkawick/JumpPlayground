@@ -4054,15 +4054,15 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Motor: {fileID: 1294728073}
-  MaxStableMoveSpeed: 6.54
-  StableMovementAcceleration: 25
+  MaxStableMoveSpeed: 5.5
+  StableMovementAcceleration: 300
   OrientationSharpness: 20
   OrientationMethod: 1
   MaxAirMoveSpeed: 7.5
-  AirAccelerationSpeed: 40
+  AirAccelerationSpeed: 200
   Drag: 0
   AllowJumpingWhenSliding: 1
-  JumpUpSpeed: 9
+  JumpUpSpeed: 8
   JumpScalableForwardSpeed: 0
   JumpPreGroundingGraceTime: 0.1
   JumpPostGroundingGraceTime: 0.1
@@ -4071,7 +4071,7 @@ MonoBehaviour:
   - {fileID: 0}
   BonusOrientationMethod: 1
   BonusOrientationSharpness: 20
-  Gravity: {x: 0, y: -30, z: 0}
+  Gravity: {x: 0, y: -20, z: 0}
   MeshRoot: {fileID: 0}
   CameraFollowPoint: {fileID: 1791557067}
   CrouchedCapsuleHeight: 1
