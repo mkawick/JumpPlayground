@@ -48,13 +48,14 @@ namespace TankAndHealerStudioAssets
 				"Added new example scenes to help show how to use the many features of the Ultimate Joystick",
 				"Improved the Joystick Prefab Display scene to show each individual joystick",
 				"Added link to the README file for the online documentation",
+				"Added code to replace outdated EventSystem components for the new Input System if it is used",
 				// NEW FEATURES //
 				"Added the ability to reposition and resize the joystick at runtime using the new Player Position Override option. See the New Functions section below for the list of associated functions",
 				"Added the ability to click and drag the joystick graphic in the editor to set it's position on the screen",
 				"Added the ability to open sections on the Ultimate Joystick inspector when dragging an object in the inspector window",
 				"Added two new options to the Anchor property: Relative To Transform and Orbit Transform",
 				"Added a new option that allows input on the joystick to be transmitted to any graphics that might be below it",
-				"Added a new setting to determine how the input is handled on the joystick, whether using the EventSystem or directly using touch input on the screen",
+				"Added a new setting to determine how the input is handled on the joystick, whether using the EventSystem or directly using touch input on the screen (new Input System completely supported)",
 				// DEPRECIATED FUNCTIONS //
 				"Depreciated the GetTapCount functions. The new tap count callbacks (OnTapAchieved or OnTapReleased) should now be used instead",
 				"Depreciated both the public and static GetJoystickState functions and replaced it with a new function: GetInputActive",

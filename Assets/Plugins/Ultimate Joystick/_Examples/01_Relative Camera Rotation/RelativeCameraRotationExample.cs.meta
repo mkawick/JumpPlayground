@@ -9,11 +9,3 @@ MonoImporter:
   userData: 
   assetBundleName: 
   assetBundleVariant: 
-AssetOrigin:
-  serializedVersion: 1
-  productId: 27695
-  packageName: Ultimate Joystick
-  packageVersion: 4.0.0
-  assetPath: Assets/Tank & Healer Studio/Ultimate Joystick/_Examples/01_Relative
-    Camera Rotation/RelativeCameraRotationExample.cs
-  uploadId: 708082
