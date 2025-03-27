@@ -4014,7 +4014,7 @@ MonoBehaviour:
   MinRequiredStepDepth: 0.1
   LedgeAndDenivelationHandling: 1
   MaxStableDistanceFromLedge: 0.5
-  MaxVelocityForLedgeSnap: 0
+  MaxVelocityForLedgeSnap: 0.66
   MaxStableDenivelationAngle: 180
   InteractiveRigidbodyHandling: 1
   RigidbodyInteractionType: 1
@@ -4058,7 +4058,7 @@ MonoBehaviour:
   StableMovementAcceleration: 300
   OrientationSharpness: 20
   OrientationMethod: 1
-  MaxAirMoveSpeed: 7.5
+  MaxAirMoveSpeed: 0
   AirAccelerationSpeed: 200
   Drag: 0
   AllowJumpingWhenSliding: 1

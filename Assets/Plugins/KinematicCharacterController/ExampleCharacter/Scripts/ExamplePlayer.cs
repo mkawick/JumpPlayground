@@ -1,9 +1,4 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
-using KinematicCharacterControllerNamespace;
-using Terresquall;
-
+﻿using UnityEngine;
 namespace KinematicCharacterControllerNamespace
 {
     public class ExamplePlayer : MonoBehaviour
