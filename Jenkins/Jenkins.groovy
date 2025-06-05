@@ -163,21 +163,21 @@ pipeline {
                             BUILD_TARGET = "android"
                             APP_EXT = "apk"
                             BUILD_NAME = "${GAME_NAME}.${APP_EXT}"
-                            BUILD_CL = "-executeMethod TinyWizard.Core.Editor.EditorMenus.BuildAndroidDevelop"
+                            BUILD_CL = "-executeMethod TinyWizard.Core.EditorBuild.BuildAndroid"
                             ADDRESSABLES_FOLDER = "Android"
                             break
                         case "AndroidRelease":
                             BUILD_TARGET = "android"
-                            APP_EXT = "aab"
+                            APP_EXT = "apk"
                             BUILD_NAME = "${GAME_NAME}.${APP_EXT}"
-                            BUILD_CL = "-executeMethod TinyWizard.Core.Editor.EditorMenus.BuildAndroidRelease"
+                            BUILD_CL = "-executeMethod TinyWizard.Core.EditorBuild.BuildAndroid"
                             ADDRESSABLES_FOLDER = "Android"
                             break
                         case "AndroidStaging":
                             BUILD_TARGET = "android"
-                            APP_EXT = "aab"
+                            APP_EXT = "apk"
                             BUILD_NAME = "${GAME_NAME}.${APP_EXT}"
-                            BUILD_CL = "-executeMethod TinyWizard.Core.Editor.EditorMenus.BuildAndroidStaging"
+                            BUILD_CL = "-executeMethod TinyWizard.Core.EditorBuild.BuildAndroid"
                             ADDRESSABLES_FOLDER = "Android"
                             break
                         case "IOSDevelop":
@@ -189,14 +189,14 @@ pipeline {
                             break
                         case "IOSRelease":
                             BUILD_TARGET = "iOS"
-                            APP_EXT = "app"
+                            APP_EXT = "ios"
                             BUILD_NAME = "${GAME_NAME}"
                             BUILD_CL = "-executeMethod TinyWizard.Core.EditorBuild.BuildIOS"
                             ADDRESSABLES_FOLDER = "iOS"
                             break
                         case "IOSStaging":
                             BUILD_TARGET = "iOS"
-                            APP_EXT = "app"
+                            APP_EXT = "ios"
                             BUILD_NAME = "${GAME_NAME}"
                             BUILD_CL = "-executeMethod TinyWizard.Core.EditorBuild.BuildIOS"
                             ADDRESSABLES_FOLDER = "iOS"
