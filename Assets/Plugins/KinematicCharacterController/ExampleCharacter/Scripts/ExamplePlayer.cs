@@ -86,7 +86,7 @@ namespace KinematicCharacterControllerNamespace
             }
         }
 
-        public static Vector2 Rotate(Vector2 v, float delta)
+        public static Vector2 RotateToCameraSpace(Vector2 v, float delta)
         {
             delta = Mathf.Deg2Rad * delta;
             return new Vector2(
@@ -95,6 +95,7 @@ namespace KinematicCharacterControllerNamespace
             );
         }
 
+        // Tiny Wizard manage inputs here
         private void HandleCharacterInput()
         {
             PlayerCharacterInputs characterInputs = new PlayerCharacterInputs();
@@ -106,7 +107,7 @@ namespace KinematicCharacterControllerNamespace
             characterInputs.joystickReleased = joystickReleased;
             joystickReleased = false;
 
-            Vector2 newDir = Rotate(new Vector2(x, y), -45);
+            Vector2 newDir = RotateToCameraSpace(new Vector2(x, y), -45);
 
             characterInputs.MoveAxisForward = newDir.y;
             characterInputs.MoveAxisRight = newDir.x;
