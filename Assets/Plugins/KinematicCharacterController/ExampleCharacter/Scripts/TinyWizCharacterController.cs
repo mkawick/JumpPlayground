@@ -55,7 +55,7 @@ namespace KinematicCharacterControllerNamespace
 
         [Header("Air Movement")]
         public float MaxAirMoveSpeed = 15f;
-        public float AirAccelerationSpeed = 15f;
+        public float AirAccelerationSpeed = 75f;
         public float Drag = 0.1f;
 
         [Header("Jumping")]
